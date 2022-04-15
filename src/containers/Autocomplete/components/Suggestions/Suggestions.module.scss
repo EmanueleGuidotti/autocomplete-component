@@ -1,0 +1,21 @@
+.suggestionsContainer {
+  width: 100%;
+  flex: 1 1 auto;
+  border-left: solid 1px #ccc;
+  border-right: solid 1px #ccc;
+  .suggestion {
+    border-bottom: 1px solid #ccc;
+    padding: .5rem;
+    &:hover {
+      background: #dedede;
+      cursor: pointer;
+    }
+  }
+}
+.visible {
+  visibility: visible;
+}
+.invisible {
+  visibility: hidden;
+}
+
