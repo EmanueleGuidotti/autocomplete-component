@@ -2,9 +2,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## First operation:
 
-In the project directory, you can run:
+Create an empty directory and clone this project inside it.\
+
+
+## Then you can run:
+
+
+### `yarn install`
+
+To install all the project dependencies.
 
 ### `yarn start`
 
