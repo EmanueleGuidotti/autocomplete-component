@@ -2,6 +2,15 @@ import PropTypes from "prop-types";
 import styles from "./Suggestions.module.scss";
 import { createRef, forwardRef } from "react";
 
+/**
+ * Suggestion element:
+ * A component which render a single suggestion line
+ * @param id - the item id
+ * @param title - the item name
+ * @param onClick - function to handle click events
+ * @type {React.ForwardRefExoticComponent<React.PropsWithoutRef<{readonly onClick?: *, readonly id?: *, readonly title?: *}> & React.RefAttributes<unknown>>}
+ * @return {JSX.Element}
+ */
 const SuggestionElement = forwardRef(({ id, title, onClick }, ref) => (
   <div
     ref={ref}
@@ -20,6 +29,16 @@ SuggestionElement.propTypes = {
   onClick: PropTypes.func,
 };
 
+/**
+ *
+ * Suggestions component:
+ * It render a list of suggestions
+ * @param suggestions - an array of suggestions
+ * @param className - an additional class
+ * @param onClick - function to handle click event
+ * @param visible - a boolean value to hide/show the list
+ * @return {JSX.Element}
+ */
 const Suggestions = ({ suggestions, className, onClick, visible }) => {
   return (
     <div

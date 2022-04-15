@@ -6,6 +6,13 @@ const options = {
     "Content-Type": "application/json",
   },
 };
+
+/**
+ *
+ * A service to fetch the data
+ * @param query - the searched therm string
+ * @return {Promise<[object]>}
+ */
 const FetchData = (query) =>
   fetch(`https://api.themoviedb.org/3/search/movie?query=${query}`, options)
     .then((response) => {
