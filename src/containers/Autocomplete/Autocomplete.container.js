@@ -13,13 +13,13 @@ import FetchData from "../../services/suggestions.service";
 const AutocompleteContainer = () => {
   const [therm, setTerm] = useState("");
   const [list, setList] = useState([]);
-  const [visible, setVisible] = useState(false);
+  const [value, setValue] = useState("");
 
   // Set the therm every time the input component send a change event
   const onChange = useCallback(
     (searchedTherm) => {
       setTerm(searchedTherm);
-      setVisible(true);
+      setValue("");
     },
     [therm]
   );
@@ -27,8 +27,8 @@ const AutocompleteContainer = () => {
   // Set the therm when the user clicks on a list item
   const onClick = useCallback(
     (searchedTherm) => {
-      setTerm(searchedTherm);
-      setVisible(false);
+      setTerm("");
+      setValue(searchedTherm);
     },
     [therm]
   );
@@ -54,14 +54,12 @@ const AutocompleteContainer = () => {
 
   // Memoized component which contains the suggestions list
   const SuggestionsComponent = useMemo(() => {
-    return (
-      <Suggestions suggestions={list} onClick={onClick} visible={visible} />
-    );
+    return <Suggestions suggestions={list} onClick={onClick} value={value} />;
   }, [list]);
 
   return (
     <div className={styles.autocompleteContainer}>
-      <Input onChange={onChange} value={therm} />
+      <Input onChange={onChange} value={therm} defaultValue={value} />
       {SuggestionsComponent}
     </div>
   );

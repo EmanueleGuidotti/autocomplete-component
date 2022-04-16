@@ -39,15 +39,9 @@ SuggestionElement.propTypes = {
  * @param visible - a boolean value to hide/show the list
  * @return {JSX.Element}
  */
-const Suggestions = ({ suggestions, className, onClick, visible }) => {
+const Suggestions = ({ suggestions, className, onClick }) => {
   return (
-    <div
-      className={[
-        styles.suggestionsContainer,
-        className,
-        visible ? styles.visible : styles.invisible,
-      ].join(" ")}
-    >
+    <div className={[styles.suggestionsContainer, className].join(" ")}>
       {suggestions?.length > 0 &&
         suggestions.map((suggestion) => {
           const ref = createRef();
@@ -70,7 +64,6 @@ Suggestions.propTypes = {
   suggestions: PropTypes.array.isRequired,
   className: PropTypes.string,
   onClick: PropTypes.func,
-  visible: PropTypes.bool,
 };
 
 export { Suggestions };

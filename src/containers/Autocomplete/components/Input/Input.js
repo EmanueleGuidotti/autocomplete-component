@@ -9,13 +9,13 @@ import styles from "./Input.module.scss";
  * @param value - the value provided by the user
  * @return {JSX.Element}
  */
-const Input = ({ onChange, value }) => {
+const Input = ({ onChange, value, defaultValue }) => {
   return (
     <input
       className={styles.input}
       type="text"
       onChange={(e) => onChange(e.target.value)}
-      value={value}
+      value={value || defaultValue}
     />
   );
 };
@@ -23,6 +23,7 @@ const Input = ({ onChange, value }) => {
 Input.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.string,
+  defaultValue: PropTypes.string,
 };
 
 export { Input };
